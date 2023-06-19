@@ -21,7 +21,7 @@ public class CloudVendorRepositoryTest
    @BeforeEach
    void setUp(){
       cloudVendor = new CloudVendor("c1",
-              "amazon","india","9561780738");
+              "amazon","india","9561780738","ashu@yash.com","Ashu123");
        cloudVendorRepository.save(cloudVendor);
    }
 

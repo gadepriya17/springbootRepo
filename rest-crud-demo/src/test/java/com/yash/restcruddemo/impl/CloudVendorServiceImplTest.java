@@ -32,7 +32,7 @@ class CloudVendorServiceImplTest
         autoCloseable = MockitoAnnotations.openMocks(this);
         cloudVendorService =  new CloudVendorServiceImpl(cloudVendorRepository);
         cloudVendor = new CloudVendor("1","Amzaon",
-                "USA","9561780738");
+                "USA","9561780738","priya@gmailcom","priya123");
 
     }
 

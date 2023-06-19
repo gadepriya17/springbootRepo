@@ -18,16 +18,37 @@ public class CloudVendor
     private String vendorName;
     private String vendorAddress;
     private String vendorPhoneNumber;
+    private String vendorEmailId;
+    private  String vendorPassword;
+
 
     public CloudVendor()
     {
     }
-    public CloudVendor(String vendorId, String vendorName, String vendorAddress, String vendorPhoneNumber)
-    {
+
+    public CloudVendor(String vendorId, String vendorName, String vendorAddress, String vendorPhoneNumber, String vendorEmailId, String vendorPassword) {
         this.vendorId = vendorId;
         this.vendorName = vendorName;
         this.vendorAddress = vendorAddress;
         this.vendorPhoneNumber = vendorPhoneNumber;
+        this.vendorEmailId = vendorEmailId;
+        this.vendorPassword = vendorPassword;
+    }
+
+    public String getVendorEmailId() {
+        return vendorEmailId;
+    }
+
+    public void setVendorEmailId(String vendorEmailId) {
+        this.vendorEmailId = vendorEmailId;
+    }
+
+    public String getVendorPassword() {
+        return vendorPassword;
+    }
+
+    public void setVendorPassword(String vendorPassword) {
+        this.vendorPassword = vendorPassword;
     }
 
     public String getVendorId() {

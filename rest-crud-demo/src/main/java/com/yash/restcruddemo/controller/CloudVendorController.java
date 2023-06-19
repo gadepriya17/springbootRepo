@@ -3,6 +3,7 @@ package com.yash.restcruddemo.controller;
 import com.yash.restcruddemo.model.CloudVendor;
 import com.yash.restcruddemo.response.ResponseHandler;
 import com.yash.restcruddemo.service.CloudVendorService;
+import com.yash.restcruddemo.utility.Status;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,6 +39,14 @@ public class CloudVendorController
     }
 
 
+    @GetMapping("/ab/{vendorEmailId}")
+    public ResponseEntity<Object> getCloudVendorDetailsByEmailID(@PathVariable("vendorEmailId") String vendorEmailId)
+    {
+        return ResponseHandler.resposeBuilder("Requested vendor details are here-",
+                HttpStatus.OK, cloudVendorService.findByVendorEmailId(vendorEmailId));
+    }
+
+
     //read all cloud vendor details
     @GetMapping()
     public List<CloudVendor> getAllCloudVendorDetails()
@@ -64,5 +73,21 @@ public class CloudVendorController
     {
         cloudVendorService.deleteCloudVendor(vendorId);
         return "cloud vendor deleted successfully!!!";
+    }
+
+    @PostMapping("/signin")
+    public Status loginCloudVendorDetails(@RequestBody CloudVendor cloudVendor)
+    {
+        System.out.println(cloudVendor);
+        CloudVendor oldCloudVendor = (CloudVendor) cloudVendorService.findByVendorEmailId(cloudVendor.getVendorEmailId());
+        System.out.println(cloudVendor);
+        if (oldCloudVendor != null) {
+            if (oldCloudVendor.getVendorPassword().equals(cloudVendor.getVendorPassword())) {
+                return Status.SUCCESS;
+            } else {
+                return Status.FAILURE;
+            }
+        }
+        return Status.FAILURE;
     }
 }

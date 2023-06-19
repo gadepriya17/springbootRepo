@@ -26,6 +26,7 @@ import  static org.springframework.test.web.servlet.request.MockMvcRequestBuilde
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+
 @WebMvcTest(CloudVendorController.class)
 class CloudVendorControllerTest
 {
@@ -41,9 +42,9 @@ class CloudVendorControllerTest
     @BeforeEach
     void setUp() {
         cloudVendorOne = new CloudVendor("1","Amazon",
-                "USA","xxxxxxxxxx");
+                "USA","xxxxxxxxxx","ashu@yash.com","ashu123");
         cloudVendorTwo = new CloudVendor("2","GCP",
-                "UK","yyyyyyyyyy");
+                "UK","yyyyyyyyyy","priya@yash.com","priya@123");
         cloudVendorList.add(cloudVendorOne);
         cloudVendorList.add(cloudVendorTwo);
     }

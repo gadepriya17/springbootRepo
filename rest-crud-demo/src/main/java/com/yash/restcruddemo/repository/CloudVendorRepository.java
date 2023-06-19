@@ -10,4 +10,5 @@ import java.util.List;
 public interface CloudVendorRepository  extends JpaRepository<CloudVendor,String>
 {
   List<CloudVendor> findByVendorNameContaining(String vendorName);
+  List<CloudVendor> findByVendorEmailId(String vendorEmailId);
 }
